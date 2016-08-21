@@ -43,5 +43,26 @@ module.exports = {
 		movie: movie
 	  }).end();
 	})   
+  },
+  
+  update: function(req, res) {
+	Movie.findById(req.swagger.params.movieId.value, function(err, movie) {
+      if(err) {
+    	res.status(500).json(err).end();
+    	return;
+      }
+      
+      _.assign(movie, req.swagger.params.movie.value.movie);
+      
+      movie.save(function(err) {
+    	if(err) {
+    	  req.status(500).json(err).end();
+    	  return;
+    	}
+    	res.json({
+    	  movie: movie
+    	}).end();
+      });
+	});
   }
 }

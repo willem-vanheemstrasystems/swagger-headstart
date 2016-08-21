@@ -54,7 +54,7 @@ paths:
             $ref: "#/definitions/MovieBody"
       responses:
         "200":
-          description: a successfuly stored movie details
+          description: A successfully stored movie details
           schema:
             $ref: "#/definitions/MovieBody"
         default:
@@ -75,7 +75,30 @@ paths:
           type: string
       responses:
         "200":
-          description: a movie details
+          description: A movie details
+          schema:
+            $ref: "#/definitions/MovieBody"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+    put:
+      description: Updates a movie entry by given id
+      operationId: update
+      parameters:
+        - name: movieId
+          required: true
+          in: path
+          type: string
+        - name: movie
+          required: true
+          in: body
+          description: An updated movie details
+          schema:
+            $ref: "#/definitions/MovieBody"
+      responses:
+        "200":
+          description: A successfully updated movie details
           schema:
             $ref: "#/definitions/MovieBody"
         default:

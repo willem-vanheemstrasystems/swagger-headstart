@@ -128,5 +128,46 @@ A unique movie with id '57b9c2dc892ee9e842e67bbf' from MongoDB database should b
 }
 ``` 
 
+#PUT movie by id
+
+With the POSTMAN plugin in Chrome browser, PUT the following from the server, filtered by id:
+
+```javascript
+http://localhost:8081/movies/57b9c2dc892ee9e842e67bbf
+```
+
+In addition, provide the movie in the request body, with changed values to perform an update on the server:
+
+```javascript
+{
+  "movie": {
+    "title": "The Shawshank Redemption",
+    "year": 1995,
+    "genre": "Drama",
+    "rank": 7
+  }
+}
+```
+
+A updated movie with id '57b9c2dc892ee9e842e67bbf' from MongoDB database should be returned, e.g.
+
+```javascript
+{
+  "movies": [
+    {
+      "_id": "57b9c2dc892ee9e842e67bbf",
+      "title": "The Shawshank Redemption",
+      "year": 1995,
+      "genre": "Drama",
+      "rank": 7,
+      "__v": 0
+    }
+  ]
+}
+``` 
+
+
+
+
 note:
-... I am at 34:57 of 47:54 of the youtube video
+... I am at 37:54 of 47:54 of the youtube video
