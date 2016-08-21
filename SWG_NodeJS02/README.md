@@ -5,23 +5,14 @@ swg_nodejs02
 
 Based on 'Swagger Integration with Node/Express' at https://www.youtube.com/watch?v=i9yOksgUQ9Y
 
-##Installation:
+##Verifying
 
-```npm install -g swagger```
+From within the 'swagger-integration' directory type:
 
-```swagger project create```
+```swagger project verify```
 
-```javascript
-Project name? swagger-integration
-Framework?
-	connect
-  > express
-    hapi
-    restify
-    sails
-```
-
-A new project will be created in the directory 'swagger-integration'
+If all is valid in ```/api/swagger/swagger.yaml``` the prompt will say:
+Results: 0 errors, 0 warnings
 
 ##Starting:
 
@@ -29,13 +20,13 @@ From within the 'swagger-integration' directory type:
 
 ```swagger project start```
 
-project started here: http://localhost:10010/
+project started here: http://localhost:8081/
 project will restart on changes
 to restart at any time, enter `rs`
 
 Try this:
 
-```curl http://127.0.0.1:10010/hello?name=Scott```
+```curl http://127.0.0.1:8081/movies?name=Scott```
 
 NOTE: To use the ***curl*** command on Windows, use cmder (see http://cmder.net/)
 

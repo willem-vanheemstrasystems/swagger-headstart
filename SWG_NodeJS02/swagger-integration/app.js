@@ -2,6 +2,7 @@
 
 var SwaggerExpress = require('swagger-express-mw');
 var app = require('express')();
+var mongoose = require('mongoose');
 module.exports = app; // for testing
 
 var config = {
@@ -13,11 +14,14 @@ SwaggerExpress.create(config, function(err, swaggerExpress) {
 
   // install middleware
   swaggerExpress.register(app);
-
-  var port = process.env.PORT || 10010;
-  app.listen(port);
-
-  if (swaggerExpress.runner.swagger.paths['/hello']) {
-    console.log('try this:\ncurl http://127.0.0.1:' + port + '/hello?name=Scott');
-  }
+  mongoose.connect('mongodb://localhost/movies-db');
+  
+  mongoose.connection.on('error', console.error.bind(console, 'connection error:'));
+  mongoose.connection.once('open', function() {
+	// app.user(jsonErrorHandler);
+	var port = process.env.PORT || 8081;  
+	app.listen(port, function() {
+      console.log('App is listening on port ' + port);
+	});
+  });
 });

@@ -1,9 +1,9 @@
 swagger: "2.0"
 info:
   version: "0.0.1"
-  title: Hello World App
+  title: Movie DB
 # during dev, should point to your local machine
-host: localhost:10010
+host: localhost:8081
 # basePath prefixes all resource paths 
 basePath: /
 # 
@@ -17,41 +17,85 @@ consumes:
 # format of the responses to the client (Accepts)
 produces:
   - application/json
+  - text/html
 paths:
-  /hello:
+  /movies:
     # binds a127 app logic to a route
-    x-swagger-router-controller: hello_world
+    x-swagger-router-controller: movies
     get:
-      description: Returns 'Hello' to the caller
+      description: Returns a list of stored movies data
       # used as the method name of the controller
-      operationId: hello
+      operationId: index
       parameters:
-        - name: name
+        - name: genre
           in: query
-          description: The name of the person to whom to say hello
-          required: false
+          description: Filter movies by genre
           type: string
       responses:
         "200":
           description: Success
           schema:
             # a pointer to a definition
-            $ref: "#/definitions/HelloWorldResponse"
+            $ref: "#/definitions/MovieListBody"
         # responses may fall through to errors
         default:
           description: Error
           schema:
             $ref: "#/definitions/ErrorResponse"
-  /swagger:
-    x-swagger-pipe: swagger_raw
+    post:
+      description: Creates a new movie entry
+      operationId: create
+      parameters:
+        - name: movie
+          required: true
+          in: body
+          description: a new movie details
+          schema:
+            $ref: "#/definitions/MovieBody"
+      responses:
+        "200":
+          description: a successfuly stored movie details
+          schema:
+            $ref: "#/definitions/MovieBody"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
 # complex objects have schema definitions
 definitions:
-  HelloWorldResponse:
+  MovieListBody:
     required:
-      - message
+      - movies
     properties:
-      message:
+      movies:
+        type: array
+        items: 
+          $ref: "#/definitions/Movie"
+  Movie:
+    required:
+      - title
+      - genre
+      - year
+    properties:
+      title:
         type: string
+      genre:
+        type: string
+      year:
+        type: integer
+        minimum: 1990
+      rank:
+        type: integer
+        default: 5
+        minimum: 1
+        maximum: 10
+  MovieBody:
+    required:
+      - movie
+    properties:
+      movie:
+        $ref: "#/definitions/Movie"
   ErrorResponse:
     required:
       - message
