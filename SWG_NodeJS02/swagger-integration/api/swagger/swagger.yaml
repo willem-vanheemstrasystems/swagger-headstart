@@ -62,6 +62,27 @@ paths:
           schema:
             $ref: "#/definitions/ErrorResponse"
 
+  /movies/{movieId}:
+    # binds a127 app logic to a route  
+    x-swagger-router-controller: movies
+    get:
+      description: Returns a single movie entry by given id
+      operationId: show
+      parameters:
+        - name: movieId
+          required: true
+          in: path
+          type: string
+      responses:
+        "200":
+          description: a movie details
+          schema:
+            $ref: "#/definitions/MovieBody"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
 # complex objects have schema definitions
 definitions:
   MovieListBody:

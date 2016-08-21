@@ -45,7 +45,7 @@ With the POSTMAN plugin in Chrome browser, POST the following JSON to the server
 
 A new entry in MongoDB database should now hold above movie information.
 
-#GET movie
+#GET movies
 
 With the POSTMAN plugin in Chrome browser, GET the following from the server:
 
@@ -78,7 +78,7 @@ A list of movies from MongoDB database should be returned, e.g.
 }
 ``` 
 
-#GET movie by genre
+#GET movies by genre
 
 With the POSTMAN plugin in Chrome browser, GET the following from the server, filtered by genre:
 
@@ -103,5 +103,30 @@ A list of movies with genre 'Drama' from MongoDB database should be returned, e.
 }
 ``` 
 
+#GET movie by id
+
+With the POSTMAN plugin in Chrome browser, GET the following from the server, filtered by id:
+
+```javascript
+http://localhost:8081/movies/57b9c2dc892ee9e842e67bbf
+```
+
+A unique movie with id '57b9c2dc892ee9e842e67bbf' from MongoDB database should be returned, e.g.
+
+```javascript
+{
+  "movies": [
+    {
+      "_id": "57b9c2dc892ee9e842e67bbf",
+      "title": "The Shawshank Redemption",
+      "year": 1994,
+      "genre": "Drama",
+      "rank": 9,
+      "__v": 0
+    }
+  ]
+}
+``` 
+
 note:
-... I am at 30:07 of 47:54 of the youtube video
+... I am at 34:57 of 47:54 of the youtube video

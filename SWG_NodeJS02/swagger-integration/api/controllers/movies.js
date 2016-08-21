@@ -31,5 +31,17 @@ module.exports = {
 		movie: movie
 	  }).end();
 	});
+  },
+  
+  show: function(req, res) {
+	Movie.findById(req.swagger.params.movieId.value, function(err, movie) {
+	  if(err) {
+		res.status(500).json(err).end();
+		return;
+	  }
+	  res.json({
+		movie: movie
+	  }).end();
+	})   
   }
 }
