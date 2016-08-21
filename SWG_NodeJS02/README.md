@@ -1,7 +1,7 @@
-# swg_nodejs01
-swg_nodejs01
+# swg_nodejs02
+swg_nodejs02
 
-#Swagger - NodeJS 01
+#Swagger - NodeJS 02
 
 Based on 'Swagger Integration with Node/Express' at https://www.youtube.com/watch?v=i9yOksgUQ9Y
 
