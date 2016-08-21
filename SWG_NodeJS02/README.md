@@ -5,6 +5,8 @@ swg_nodejs02
 
 Based on 'Swagger Integration with Node/Express' at https://www.youtube.com/watch?v=i9yOksgUQ9Y
 
+See also 'The ABCs of APIs with Node.js with Greg Rewis' at https://www.youtube.com/watch?v=BKIXL_A8tl8
+
 ##Verifying
 
 From within the 'swagger-integration' directory type:
@@ -234,8 +236,3 @@ The server will reply with a detailed error message, thanks to Swaggers validati
   "paramName": "movie"
 }
 ```
-
-
-
-note:
-... I am at 38:35 of 47:54 of the youtube video
