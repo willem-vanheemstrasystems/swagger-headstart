@@ -49,7 +49,7 @@ A new entry in MongoDB database should now hold above movie information.
 
 With the POSTMAN plugin in Chrome browser, GET the following from the server:
 
-```http://localhost:8081/movies'''
+```http://localhost:8081/movies```
 
 A list of movies from MongoDB database should be returned, e.g.
 
