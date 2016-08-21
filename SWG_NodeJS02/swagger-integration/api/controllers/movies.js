@@ -1,10 +1,15 @@
 'use strict';
 
 var Movie = require('../models/movie');
+var _ = require('lodash');
 
 module.exports = {
   index: function(req, res) {
-	Movie.find({}, function(err, movies) {
+	Movie.find(_.omit({
+	  genre: req.swagger.params.genre.value
+	}, function(value) {	
+	  return _.isNull(value) || _.isUndefined(value);
+	}), function(err, movies) {
 	  if(err) {
 		res.status(500).json(err).end();
 		return;

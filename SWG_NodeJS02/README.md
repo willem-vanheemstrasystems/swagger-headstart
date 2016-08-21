@@ -78,5 +78,30 @@ A list of movies from MongoDB database should be returned, e.g.
 }
 ``` 
 
+#GET movie by genre
+
+With the POSTMAN plugin in Chrome browser, GET the following from the server, filtered by genre:
+
+```javascript
+http://localhost:8081/movies?genre=Drama
+```
+
+A list of movies with genre 'Drama' from MongoDB database should be returned, e.g.
+
+```javascript
+{
+  "movies": [
+    {
+      "_id": "57b9c2dc892ee9e842e67bbf",
+      "title": "The Shawshank Redemption",
+      "year": 1994,
+      "genre": "Drama",
+      "rank": 9,
+      "__v": 0
+    }
+  ]
+}
+``` 
+
 note:
-... I am at 28:09 of 47:54 of the youtube video
+... I am at 30:07 of 47:54 of the youtube video
