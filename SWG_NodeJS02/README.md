@@ -54,15 +54,28 @@ With the POSTMAN plugin in Chrome browser, GET the following from the server:
 A list of movies from MongoDB database should be returned, e.g.
 
 ```javascript
-[{
-  "movie": {
-    "__v": 0,
-    "title": "The Shawshank Redemption",
-    "year": 1994,
-    "genre": "Drama",
-    "rank": 9,
-    "_id": "57b9c595892ee9e842e67bc0"
-  }
-}]
+{
+  "movies": [
+    {
+      "_id": "57b9c2dc892ee9e842e67bbf",
+      "title": "The Shawshank Redemption",
+      "year": 1994,
+      "genre": "Drama",
+      "rank": 9,
+      "__v": 0
+    },
+    {
+      "_id": "57b9c595892ee9e842e67bc0",
+      "title": "Ghostbusters",
+      "year": 1994,
+      "genre": "Comedy",
+      "rank": 5,
+      "__v": 0
+    }
+  ]
+
 ``` 
 
+
+note:
+... I am at 28:09 of 47:54 of the youtube video

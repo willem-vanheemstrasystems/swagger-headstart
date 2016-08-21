@@ -4,9 +4,15 @@ var Movie = require('../models/movie');
 
 module.exports = {
   index: function(req, res) {
-    res.json[{
-      movies: []
-    }];
+	Movie.find({}, function(err, movies) {
+	  if(err) {
+		res.status(500).json(err).end();
+		return;
+	  }
+	  res.json({
+		movies: movies
+	  }).end();
+    });
   },
   
   create: function(req, res) {
