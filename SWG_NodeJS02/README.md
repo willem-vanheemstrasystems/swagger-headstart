@@ -73,9 +73,8 @@ A list of movies from MongoDB database should be returned, e.g.
       "__v": 0
     }
   ]
-
+}
 ``` 
-
 
 note:
 ... I am at 28:09 of 47:54 of the youtube video
