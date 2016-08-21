@@ -166,8 +166,10 @@ A updated movie with id '57b9c2dc892ee9e842e67bbf' from MongoDB database should 
 }
 ``` 
 
+#DELETE movie by id
+
 
 
 
 note:
-... I am at 37:54 of 47:54 of the youtube video
+... I am at 38:35 of 47:54 of the youtube video

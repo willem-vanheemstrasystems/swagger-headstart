@@ -64,5 +64,17 @@ module.exports = {
     	}).end();
       });
 	});
+  },
+  
+  destroy: function(req, res) {
+	Movie.findByIdAndRemove(req.swagger.params.movieId.value, function(err, movie) {
+	  if(err) {
+		res.status(500).json(err).end();
+		return;
+	  }
+	  res.json({
+	    movie: movie
+	  }).end();
+	})
   }
 }
