@@ -14,6 +14,10 @@ From within the 'swagger-integration' directory type:
 If all is valid in ```/api/swagger/swagger.yaml``` the prompt will say:
 Results: 0 errors, 0 warnings
 
+#MongoDB
+
+Make sure you have MongoDB running before starting the application. (On Windows run mongod.exe)
+
 ##Starting:
 
 From within the 'swagger-integration' directory type:
@@ -24,20 +28,41 @@ project started here: http://localhost:8081/
 project will restart on changes
 to restart at any time, enter `rs`
 
-Try this:
+#POST movie
 
-```curl http://127.0.0.1:8081/movies?name=Scott```
+With the POSTMAN plugin in Chrome browser, POST the following JSON to the server on http://localhost:8081/movies
 
-NOTE: To use the ***curl*** command on Windows, use cmder (see http://cmder.net/)
+```javascript
+{
+  "movie": {
+    "title": "The Shawshank Redemption",
+    "year": 1994,
+    "genre": "Drama",
+    "rank": 9
+  }
+}
+```
 
-The reply on the command line will be:
+A new entry in MongoDB database should now hold above movie information.
 
-```"Hello, Scott!"```
+#GET movie
 
-Alternatively, open a web browser window and surf to:
+With the POSTMAN plugin in Chrome browser, GET the following from the server:
 
-```http://127.0.0.1:10010/hello?name=Scott```
+```http://localhost:8081/movies'''
 
-The reply in the web browser window will be:
+A list of movies from MongoDB database should be returned, e.g.
 
-```"Hello, Scott!"```
+```javascript
+[{
+  "movie": {
+    "__v": 0,
+    "title": "The Shawshank Redemption",
+    "year": 1994,
+    "genre": "Drama",
+    "rank": 9,
+    "_id": "57b9c595892ee9e842e67bc0"
+  }
+}]
+``` 
+

@@ -1,5 +1,7 @@
 'use strict';
 
+var Movie = require('../models/movie');
+
 module.exports = {
   index: function(req, res) {
     res.json[{
