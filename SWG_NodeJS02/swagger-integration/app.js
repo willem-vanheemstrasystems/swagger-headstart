@@ -3,6 +3,8 @@
 var SwaggerExpress = require('swagger-express-mw');
 var app = require('express')();
 var mongoose = require('mongoose');
+var jsonErrorFormatter = require('./api/helpers/jsonErrorFormatter');
+
 module.exports = app; // for testing
 
 var config = {
@@ -18,7 +20,7 @@ SwaggerExpress.create(config, function(err, swaggerExpress) {
   
   mongoose.connection.on('error', console.error.bind(console, 'connection error:'));
   mongoose.connection.once('open', function() {
-	// app.user(jsonErrorHandler);
+	app.use(jsonErrorFormatter);
 	var port = process.env.PORT || 8081;  
 	app.listen(port, function() {
       console.log('App is listening on port ' + port);

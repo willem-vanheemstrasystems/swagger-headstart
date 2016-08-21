@@ -168,6 +168,72 @@ A updated movie with id '57b9c2dc892ee9e842e67bbf' from MongoDB database should 
 
 #DELETE movie by id
 
+With the POSTMAN plugin in Chrome browser, DELETE the following from the server, filtered by id:
+
+```javascript
+http://localhost:8081/movies/57b9c2dc892ee9e842e67bbf
+```
+
+The deleted movie with id '57b9c2dc892ee9e842e67bbf' from MongoDB database should be returned, e.g.
+
+```javascript
+{
+  "movies": [
+    {
+      "_id": "57b9c2dc892ee9e842e67bbf",
+      "title": "The Shawshank Redemption",
+      "year": 1995,
+      "genre": "Drama",
+      "rank": 7,
+      "__v": 0
+    }
+  ]
+}
+``` 
+
+#Validation
+
+Try POST a new movie without providing a title:
+
+```javascript
+{
+  "movie": {
+    "year": 1994,
+    "genre": "Drama",
+    "rank": 9
+  }
+}
+```
+
+The server will reply with a detailed error message, thanks to Swaggers validation:
+
+```javascript
+{
+  "message": "Request validation failed: Parameter (movie) failed schema validation",
+  "code": "SCHEMA_VALIDATION_FAILED",
+  "failedValidation": true,
+  "results": {
+    "errors": [
+      {
+        "code": "OBJECT_MISSING_REQUIRED_PROPERTY",
+        "message": "Missing required property: title",
+        "path": [
+          "movie"
+        ]
+      }
+    ],
+    "warnings": []
+  },
+  "path": [
+    "paths",
+    "/movies",
+    "post",
+    "parameters",
+    "0"
+  ],
+  "paramName": "movie"
+}
+```
 
 
 
