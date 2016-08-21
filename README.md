@@ -7,3 +7,10 @@ Based on 'Using Swagger to tame HTTP/JSON Interfaces' at https://www.youtube.com
 
 Sample service: The Petstore (see http://petstore.swagger.io)
 
+
+
+
+#SwaggerHub
+
+SwaggerHub’s Editor lets you edit the YAML directly. (see https://smartbear.com/product/swaggerhub/overview/)
+
